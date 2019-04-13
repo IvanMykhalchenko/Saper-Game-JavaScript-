@@ -119,8 +119,21 @@ class Saper {
 	/*Метод для рандомной расстановки бомб. К соответсвующей клеточки будет добавляться бомба как фон */ 
 	addRandomBombs() {
 		const allSquare = this.getAllSquareDown(this.allSquareDown);
+		var arrayNumbersBombs = []; //Чтобы носера  бомб не повторялись и получилось точное количетсво бомб
+		function isNumberInArray(number) {
+			if (arrayNumbersBombs.includes(number)) {
+				return true;	
+			} else return false;
+		}
 		for(let i = 0; i < 50; i++) {
-			allSquare[Math.floor((Math.random() * 100) * 2)].classList.add('bomb');
+			
+			var numberBombs = Math.floor((Math.random() * 100) * 2);
+			while(isNumberInArray(numberBombs)) {
+				numberBombs	= Math.floor((Math.random() * 100) * 2);
+			}
+				arrayNumbersBombs.push(numberBombs);
+			
+			allSquare[numberBombs].classList.add('bomb');
 		}
 		}	
 

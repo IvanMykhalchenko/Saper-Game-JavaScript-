@@ -87,7 +87,6 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	font-size: 19px;
-	/* opacity: 0; */
 	line-height: 25px;
 	text-align: center;
 	z-index: 1;
@@ -105,7 +104,6 @@
 	line-height: 25px;
 	text-align: center;
 	z-index: 3;
-	/* opacity: 0; */
 }
 
 .flag {
