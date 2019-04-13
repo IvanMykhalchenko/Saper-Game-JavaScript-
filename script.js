@@ -125,7 +125,7 @@ class Saper {
 				return true;	
 			} else return false;
 		}
-		for(let i = 0; i < 50; i++) {
+		for(let i = 0; i < 40; i++) {
 			
 			var numberBombs = Math.floor((Math.random() * 100) * 2);
 			while(isNumberInArray(numberBombs)) {
@@ -289,6 +289,13 @@ class Saper {
 				//Открываю верхние клетки
 				for(let j = 0; j < checkElem.length; j++) {
 					allSquareUp[checkElem[j]].style.opacity = '0';
+
+				}
+				//если среди открытых есть пустые клетки, для них снова вызываю функцию.
+				for(let j = 0; j < checkElem.length; j++) {
+					if(allSquareDown[checkElem[j]].innerHTML === '0') {
+						openSquaresUp(checkElem[j]);
+					} else continue;
 				}
 		}
 
@@ -300,56 +307,10 @@ class Saper {
 			if(allSquareDown[i].innerHTML === '0') {
 				openSquaresUp(i)
 			}
-			
-			// for(let j = 0; j < checkElem.length; j++) {	
-			// 	if(allSquareDown[checkElem[j]].innerHTML == '0') {
-			// 		allSquareUp[checkElem[j]].style.opacity = '0';
-			// 	}
-			// }
+
 		}
 		openFirstTime(target);
-		/*Здесь напишу функцию, которая при клике, будет проверять соседние клетки. Если найдет то будет вызываться снова
-		уже с этой найденой клеткой и так пока соседние клетки не будут пустые.*/
-		// function findEmptySquares() {
-		// 	var checkElem = [];
-		// var i = +target.dataset.number;
-		// 	if(allSquareDown[i].innerHTML == '0') {
-		// 		openSquaresUp(i)
-		// 	}
-		// 	//Для крайних и угловых клеточек будет свой масcив для проверки соседних клеточек
-		// 	if ( i == 0 ) {
-		// 		checkElem = [ i+1, i+20, i+21 ];
-		// 	}
-		// 	else if ( i == 180 ) checkElem = [ i+1, i-20, i-19 ];
-		// 	else if ( i == 19 ) checkElem = [ i-1, i+20, i+19 ];
-		// 	else if ( i == 19 ) checkElem = [ i-1, i+20, i+19 ];
-		// 	else if ( i == 199 ) checkElem = [ i-1, i-20, i-21 ];
-		// 	else if( i == 20 || i == 40 || i == 60 || i == 80 || i == 100 || i == 120 || i == 140 || i == 160 ) {
-		// 		checkElem = [ i+1, i-20, i+20, i+21, i-19 ]
-		// 	}
-		// 	else if( i == 19 || i == 39 || i == 59 || i == 79 || i == 99 || i == 119 || i == 139 || i == 159 || i == 179 ) {
-		// 		checkElem = [ i-1, i-20, i+20, i-21, i+19 ]
-		// 	}
-		// 	else if ( i >= 1 && i <= 18) {
-		// 		checkElem = [i+1, i-1, i+20, i+19, i+21]
-		// 	}
-		// 	else if ( i >= 181 && i <= 199) {
-		// 		checkElem = [i+1, i-1, i-20, i-19, i-21]
-		// 	}else {
-		// 		checkElem = [i-21, i-20, i-19, i+1, i+21, i+20, i+19, i-1];
-		// 	}
-		// 	//Ищу клеточки у которых 0 бомб.
-		// 	for(let j = 0; j < checkElem.length; j++) {
-		// 		console.log(checkElem);
-		// 		if(allSquareDown[checkElem[j]].innerHTML == '0') {
-		// 			openSquaresUp(checkElem[j]);
-		// 			findEmptySquares(allSquareDown[checkElem[j]])
-		// 		} else {
-		// 			return;
-		// 		}
-		// 	}
-		// }
-		// findEmptySquares()
+	
 	}
 }
 
