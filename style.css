@@ -1,0 +1,124 @@
+.saper {
+	width: 504px;
+	height: 304px;
+	background: #BDBDBD;
+	margin: 30px auto;
+	padding: 5px;
+}
+
+.saper__info {
+	width: 100%;
+	height: 45px;
+	box-shadow: inset -2px -2px #EBEBEB, inset 2px 2px #7B7B7B;
+	position: relative;
+	margin-bottom: 5px;
+}
+
+.saper__info_count-mines {
+	position: absolute;
+	left: 8px;
+	top: 6px;
+	width: 45px;
+	height: 25px;
+	background: #444;
+	color: red;
+	font-family: 'Cute Font', cursive;
+	font-size: 36px;
+	line-height: 25px;
+}
+
+
+.saper__info_time {
+	position: absolute;
+	right: 8px;
+	top: 6px;
+	width: 45px;
+	height: 25px;
+	background: #444;
+	color: red;
+	font-family: 'Cute Font', cursive;
+	font-size: 36px;
+	line-height: 25px;
+}
+
+.saper__info_reset {
+	position: absolute;
+	left: 50%;
+	top: 6px;
+	width: 25px;
+	height: 25px;
+	background: url(img/emoticon-2-24.png) no-repeat center, #BDBDBD;
+	background-size: 70%;
+	border: 1px solid #7B7B7B;
+	box-shadow: inset -2px -2px #7B7B7B , inset 2px 2px #EBEBEB;
+	transform: translate(-50%);
+
+}
+.saper__info_reset-click {
+	position: absolute;
+	left: 50%;
+	top: 6px;
+	width: 25px;
+	height: 25px;
+	background: #BDBDBD;
+	border: 1px solid #7B7B7B;
+	box-shadow: inset -2px -2px  #EBEBEB , inset 2px 2px #7B7B7B;
+	transform: translate(-50%)
+}
+.saper__field {
+	position: relative;
+	width: 100%;
+	height: 254px;
+	background: #B1B1B1;
+	padding: 2px;
+	box-shadow: inset -2px -2px #EBEBEB, inset 2px 2px #7B7B7B;
+	box-sizing: border-box;
+	font-size: 0;
+}
+
+.saper__field_square-down {
+	position: relative;
+	width: 25px;
+	height: 25px;
+	top: -250px;
+	box-shadow: inset -2px -2px  #EBEBEB, inset 2px 2px #7B7B7B;
+	background: #BDBDBD;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 19px;
+	/* opacity: 0; */
+	line-height: 25px;
+	text-align: center;
+	z-index: 1;
+	
+}
+
+.saper__field_square {
+	position: relative;
+	width: 25px;
+	height: 25px;
+	box-shadow: inset -2px -2px #7B7B7B , inset 2px 2px #EBEBEB;
+	background: #BDBDBD;
+	display: inline-block;
+	font-size: 10px;
+	line-height: 25px;
+	text-align: center;
+	z-index: 3;
+	/* opacity: 0; */
+}
+
+.flag {
+	background: url(img/filled-flag-24.png) no-repeat  center, #BDBDBD;
+	background-size: 70%;
+	
+}
+
+.bomb {
+	background: url(img/bomb-3-24.png) no-repeat center;
+	background-size: 70%;
+}
+.explosion {
+	background: url(img/flash-bang-24.png) no-repeat center;
+	background-size: 70%;
+}
