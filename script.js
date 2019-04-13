@@ -49,15 +49,15 @@ class Saper {
 
 	//Метод поиска всех клеточек для расстановки бомб
 
-	getAllSquareDown (classes) {
+	getAllSquare (classes) {
 		return document.querySelectorAll(classes);
 	}
 
 	// Все обработчики событий сдесь
 	allHandlersEvent() {
 		const self = this;
-		const allSquareUp = this.getAllSquareDown(this.allSquare);
-		const allSquareDown = this.getAllSquareDown(this.allSquareDown);
+		const allSquareUp = this.getAllSquare(this.allSquare);
+		const allSquareDown = this.getAllSquare(this.allSquareDown);
 		/*Навешиваю на кнопку RESET */
 		this.saperInfo.children[1].onmousedown = function() {
 			this.classList.add('saper__info_reset-click');
@@ -91,7 +91,6 @@ class Saper {
 			}
 
 			//Открываем поля без бомб вокруг
-			console.log(target);
 			self.checkAndOpenSquare(target);
 
 		}
@@ -118,7 +117,7 @@ class Saper {
 
 	/*Метод для рандомной расстановки бомб. К соответсвующей клеточки будет добавляться бомба как фон */ 
 	addRandomBombs() {
-		const allSquare = this.getAllSquareDown(this.allSquareDown);
+		const allSquare = this.getAllSquare(this.allSquareDown);
 		var arrayNumbersBombs = []; //Чтобы носера  бомб не повторялись и получилось точное количетсво бомб
 		function isNumberInArray(number) {
 			if (arrayNumbersBombs.includes(number)) {
@@ -168,7 +167,7 @@ class Saper {
 	/* Метод для отслеживания бомб вокруг клеточки */
 
 	renderCountAroundBombs () {
-		const fieldSquare = this.getAllSquareDown(this.allSquareDown);
+		const fieldSquare = this.getAllSquare(this.allSquareDown);
 		var checkElem = [];
 		var countBombs = 0;
 			for(let i = 0; i < 200; i++) {
@@ -219,7 +218,7 @@ class Saper {
 
 	//Метод для для цвета цифр количетсва бомб
 	colorNumbers() {
-		const fieldSquare = this.getAllSquareDown(this.allSquareDown);
+		const fieldSquare = this.getAllSquare(this.allSquareDown);
 		console.log(fieldSquare[3]);
 		
 		for(let i = 0; i < fieldSquare.length; i++) {
@@ -245,7 +244,7 @@ class Saper {
 	}
 	//Если попал на бомбу, то вызыватется этот метод и game over
 	opacityForAllSquareUp() {
-		const allSquare = this.getAllSquareDown(this.allSquare);
+		const allSquare = this.getAllSquare(this.allSquare);
 		for(let i = 0; i < allSquare.length; i++) {
 			allSquare[i].style.opacity = '0';
 		}
@@ -255,11 +254,9 @@ class Saper {
 
 	//Метод который при клике на пустую клетку, будет открывать соседние пустые клетки. Параметр - клетка по которой мы кликнули
 	checkAndOpenSquare(target) {
-		const allSquareDown = this.getAllSquareDown(this.allSquareDown);
-		const allSquareUp = this.getAllSquareDown(this.allSquare);
-		console.log(target);
+		const allSquareDown = this.getAllSquare(this.allSquareDown);
+		const allSquareUp = this.getAllSquare(this.allSquare);
 		var target = target;
-		console.log(target);
 		/*Функция для открытия верних клеток для клетки */
 		function openSquaresUp(i) {
 				//Для крайних и угловых клеточек будет свой масcив для проверки соседних клеточек
@@ -291,17 +288,16 @@ class Saper {
 					allSquareUp[checkElem[j]].style.opacity = '0';
 
 				}
-				//если среди открытых есть пустые клетки, для них снова вызываю функцию.
+				//если среди открытых есть пустые клетки, для них снова вызываю функцию
 				for(let j = 0; j < checkElem.length; j++) {
 					if(allSquareDown[checkElem[j]].innerHTML === '0') {
 						openSquaresUp(checkElem[j]);
-					} else continue;
+					}
 				}
 		}
 
 		/*Функция подготавливает к открытии клеток при клике */
 		function openFirstTime(target) {
-			console.log(target)
 			var i = +target.dataset.number;
 
 			if(allSquareDown[i].innerHTML === '0') {
